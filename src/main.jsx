@@ -3,7 +3,7 @@ import{createRoot}from"react-dom/client";
 import{createClient}from"@supabase/supabase-js";
 import{Search,Plus,MapPin,Calendar,MessageCircle,Trash2,CheckCircle2,AlertTriangle,Megaphone,User,ShieldCheck,X,Archive,ChevronRight,Loader2,Pencil,RefreshCw,UserX,UserCheck,Save,Home as HomeIcon,ImagePlus,Users}from"lucide-react";
 import"./style.css";
-const supabase=createClient(import.meta.env.VITE_SUPABASE_URL,import.meta.env.VITE_SUPABASE_ANON_KEY);
+const supabase=createClient("https://uhmhldjsbavtapuseiak.supabase.co","sb_publishable_NhnpdJmsadEokRKqlI_iWw_eknldasY");
 const ITEM_STATUS_LABEL={stored:"보관중",returned:"반환완료",disposal_pending:"폐기예정",disposed:"폐기완료"},REPORT_STATUS_LABEL={pending:"접수",approved:"승인됨",rejected:"거절됨",closed:"종료"};
 const NICK_RE=/^([0-9]{2}-[0-9]{5}[가-힣]{2,4}|[가-힣]{2,4}선생님)$/;
 const fmt=d=>d?new Date(d).toLocaleDateString("ko-KR"):"";
