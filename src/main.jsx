@@ -103,8 +103,7 @@ function MyPage({session,profile,reports,items,nick,setProfile,notify}){
    const statusLabel=matched?ITEM_STATUS_LABEL[matched.status]:(r.status==="approved"?"삭제됨":(REPORT_STATUS_LABEL[r.status]||r.status));
    const isFound=r.report_type==="found";
    return <div className="reportrow" key={r.id}>
-    <b>{r.name}</b> <span className={"typebadge "+(r.report_type||"lost")}>{isFound?"습득":"분실"}</span>
-    <span className={"stamp "+statusClass}>{statusLabel}</span>
+    <div className="rowhead"><b>{r.name}</b> <span className={"typebadge "+(r.report_type||"lost")}>{isFound?"습득":"분실"}</span> <span className={"stamp "+statusClass}>{statusLabel}</span></div>
     <small>{r.lost_location} · 등록 {fmt(r.created_at)} · {isFound?"습득":"분실"}일 {fmt(r.lost_date)}</small>
    </div>
   })}
@@ -137,8 +136,7 @@ function ReportBoard({reports,items}){
    const statusLabel=matched?ITEM_STATUS_LABEL[matched.status]:(r.status==="approved"?"삭제됨":(REPORT_STATUS_LABEL[r.status]||r.status));
    const isFound=r.report_type==="found";
    return <div className="reportrow" key={r.id}>
-    <b>{r.name}</b> <span className={"typebadge "+(r.report_type||"lost")}>{isFound?"습득":"분실"}</span>
-    <span className={"stamp "+statusClass}>{statusLabel}</span>
+    <div className="rowhead"><b>{r.name}</b> <span className={"typebadge "+(r.report_type||"lost")}>{isFound?"습득":"분실"}</span> <span className={"stamp "+statusClass}>{statusLabel}</span></div>
     <small>{r.lost_location} · 등록 {fmt(r.created_at)} · {isFound?"습득":"분실"}일 {fmt(r.lost_date)} · 작성자 {r.reporter_nickname_snapshot||"알 수 없음"}</small>
     {r.features&&<small>{r.features}</small>}
    </div>
