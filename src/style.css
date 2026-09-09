@@ -12,6 +12,9 @@
 .authswitch{text-align:center;font-size:12px;color:#4B6067;margin-top:18px}
 .authswitch button{background:none;color:#51707A;font-weight:bold;text-decoration:underline}
 .roletoggle{display:flex;gap:8px;margin:16px 0}
+.checkboxrow{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:#4B6067;margin:14px 0;line-height:1.5}
+.checkboxrow input[type=checkbox]{width:16px;height:16px;padding:0;border:1.5px solid #B79A5C;border-radius:4px;background:#FFFCF6;margin-top:2px;flex-shrink:0}
+input[type=date]{-webkit-appearance:none;appearance:none;width:100%!important;box-sizing:border-box}
 .roletoggle button{flex:1;padding:10px;border-radius:8px;background:#fff;border:1.5px solid #C7AD6D;color:#4B6067;font-weight:bold;font-size:13px}
 .roletoggle button.sel{background:#1F2E36;color:#fff;border-color:#1F2E36}
 .studentgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
