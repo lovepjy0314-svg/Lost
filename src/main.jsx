@@ -4,7 +4,7 @@ import{createClient}from"@supabase/supabase-js";
 import{Search,Plus,MapPin,Calendar,MessageCircle,MessageSquare,Trash2,CheckCircle2,AlertTriangle,Megaphone,User,ShieldCheck,X,Archive,ChevronRight,Loader2,Pencil,RefreshCw,UserX,UserCheck,Save,Home as HomeIcon,ImagePlus,Users}from"lucide-react";
 import"./style.css";
 const supabase=createClient("https://uhmhldjsbavtapuseiak.supabase.co","sb_publishable_NhnpdJmsadEokRKqlI_iWw_eknldasY");
-const ITEM_STATUS_LABEL={stored:"보관중",returned:"반환완료",disposal_pending:"폐기예정",disposed:"폐기완료",deleted:"삭제됨"},REPORT_STATUS_LABEL={pending:"접수",approved:"승인됨",rejected:"거절됨",closed:"종료"};
+const ITEM_STATUS_LABEL={lost:"분실",stored:"보관중",returned:"반환완료",disposal_pending:"폐기예정",disposed:"폐기완료",deleted:"삭제됨"},REPORT_STATUS_LABEL={pending:"접수",approved:"승인됨",rejected:"거절됨",closed:"종료"};
 const NICK_RE=/^([0-9]{2}-[0-9]{5}[가-힣]{2,4}|[가-힣]{2,4}선생님)$/;
 const fmt=d=>d?new Date(d).toLocaleDateString("ko-KR"):"";
 const reporterName=(entity,isAdmin)=>{
@@ -28,7 +28,7 @@ function ClampText({text}){
  </>
 }
 function Toast({msg,error}){return msg?<div className={`toast ${error?"err":""}`}><CheckCircle2 size={15}/>{msg}</div>:null}
-function Stamp({status}){return <span className={`stamp ${status}`}>{status==="stored"?<Archive size={12}/>:status==="returned"?<CheckCircle2 size={12}/>:<AlertTriangle size={12}/>} {ITEM_STATUS_LABEL[status]||status}</span>}
+function Stamp({status}){return <span className={`stamp ${status}`}>{status==="lost"?<AlertTriangle size={12}/>:status==="stored"?<Archive size={12}/>:status==="returned"?<CheckCircle2 size={12}/>:<AlertTriangle size={12}/>} {ITEM_STATUS_LABEL[status]||status}</span>}
 function App(){
  const[session,setSession]=useState(null),[profile,setProfile]=useState(null),[page,setPage]=useState("home"),[items,setItems]=useState([]),[reports,setReports]=useState([]),[notices,setNotices]=useState([]),[selected,setSelected]=useState(null),[q,setQ]=useState(""),[loading,setLoading]=useState(true),[toast,setToast]=useState(""),[error,setError]=useState(false);
  const[tokenResult,setTokenResult]=useState(null);
